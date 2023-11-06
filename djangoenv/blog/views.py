@@ -16,9 +16,9 @@ def post_list(request):
 
 
 @csrf_exempt
-def delete_post(request, post_id):
+def delete_post(request, id):
     try:
-        post = Post.objects.get(id=post_id)
+        post = Post.objects.get(id=id)
         post.delete()
         return JsonResponse({"message": "게시물이 삭제되었습니다."})
     except Post.DoesNotExist:
