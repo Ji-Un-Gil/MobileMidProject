@@ -21,9 +21,9 @@ def delete_post(request, id):
     try:
         post = Post.objects.get(id=id)
         post.delete()
-        return Response(status=204)
+        return Response({}, status=204)
     except Post.DoesNotExist:
-        return Response(status=404)
+        return Response({}, status=404)
 
 
 class PostViewSet(viewsets.ModelViewSet):
