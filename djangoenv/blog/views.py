@@ -33,7 +33,7 @@ class PostViewSet(viewsets.ModelViewSet):
 class PostDetail(RetrieveAPIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
-    lookup_url_kwarg = 'post_id'
+    lookup_url_kwarg = 'id'
 
     def get_object(self):
         queryset = self.filter_queryset(self.get_queryset())
