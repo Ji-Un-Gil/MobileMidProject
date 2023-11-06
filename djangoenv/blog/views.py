@@ -26,7 +26,7 @@ def delete_post(request, id):
 
 
 class PostViewSet(viewsets.ModelViewSet):
-    queryset = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+    queryset = Post.objects.all.order_by('published_date')
     serializer_class = PostSerializer
 
 
