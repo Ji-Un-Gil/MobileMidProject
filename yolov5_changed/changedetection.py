@@ -6,9 +6,9 @@ from datetime import datetime
 
 class ChangeDetection:
     result_prev = []
-    HOST = 'http://127.0.0.1:8000'
-    username = 'admin'
-    password = 'admin123'
+    HOST = 'https://wldns2577.pythonanywhere.com'
+    username = 'admin'  # 예시
+    password = 'admin123' # 예시
     token = ''
     title = ''
     text = ''
@@ -64,5 +64,5 @@ class ChangeDetection:
         'published_date' : now
         }
         file = {'image' : open(full_path, 'rb')}
-        res = requests.post(self.HOST + '/api_root/Post/', data=data, files=file, headers=headers)
+        res = requests.post(self.HOST + '/api/posts/', data=data, files=file, headers=headers)
         print(res)
