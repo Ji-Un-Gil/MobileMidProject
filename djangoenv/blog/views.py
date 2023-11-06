@@ -1,8 +1,8 @@
 from django.http import JsonResponse
 from django.shortcuts import render
 from django.utils import timezone
-from django.views.decorators.csrf import csrf_exempt
 from rest_framework import viewsets
+from rest_framework.decorators import api_view
 from rest_framework.generics import RetrieveAPIView, CreateAPIView, get_object_or_404
 
 from .serializers import PostSerializer
@@ -15,7 +15,7 @@ def post_list(request):
     return render(request, "blog/post_list.html", {'posts': posts})
 
 
-@csrf_exempt
+@api_view(['DELETE'])
 def delete_post(request, id):
     try:
         post = Post.objects.get(id=id)
@@ -43,6 +43,7 @@ class PostDetail(RetrieveAPIView):
         return obj
 
 
+@api_view(['POST'])
 class PostCreate(CreateAPIView):
     serializer_class = PostSerializer
 
