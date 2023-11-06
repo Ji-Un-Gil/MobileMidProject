@@ -20,7 +20,7 @@ def delete_post(request, id):
     try:
         post = Post.objects.get(id=id)
         post.delete()
-        return JsonResponse({"message": "게시물이 삭제되었습니다."})
+        return JsonResponse({"message": "게시물이 삭제되었습니다."}, status=204)
     except Post.DoesNotExist:
         return JsonResponse({"error": "게시물을 찾을 수 없습니다."}, status=404)
 
