@@ -44,6 +44,10 @@ class PostDetail(RetrieveAPIView):
 
 
 @api_view(['POST'])
-class PostCreate(CreateAPIView):
-    serializer_class = PostSerializer
+def post_create(request):
+    serializer = PostSerializer(data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+        return JsonResponse(serializer.data, status=201)
+    return JsonResponse(serializer.errors, status=400)
 
