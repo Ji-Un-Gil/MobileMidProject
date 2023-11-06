@@ -10,6 +10,7 @@ class Post(models.Model):
     created_date = models.DateTimeField(default=timezone.now())
     published_date = models.DateTimeField(blank=True, null=True)
     image = models.ImageField(upload_to='intruder_image/%Y/%m/%d/')
+    id = models.AutoField(primary_key=True)
 
     def publish(self):
         self.published_date = timezone.now()
