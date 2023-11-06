@@ -1,7 +1,7 @@
 from django.http import JsonResponse
 from django.shortcuts import render
 from django.utils import timezone
-from rest_framework import viewsets
+from rest_framework import viewsets, status
 from rest_framework.decorators import api_view
 from rest_framework.generics import RetrieveAPIView, CreateAPIView, get_object_or_404
 from rest_framework.response import Response
@@ -21,9 +21,9 @@ def delete_post(request, id):
     try:
         post = Post.objects.get(id=id)
         post.delete()
-        return Response({}, status=204)
+        return JsonResponse({}, status=status.HTTP_204_NO_CONTENT)
     except Post.DoesNotExist:
-        return Response({}, status=404)
+        return JsonResponse({}, status=status.HTTP_404_NOT_FOUND)
 
 
 class PostViewSet(viewsets.ModelViewSet):
@@ -49,6 +49,6 @@ def post_create(request):
     serializer = PostSerializer(data=request.data)
     if serializer.is_valid():
         serializer.save()
-        return JsonResponse(serializer.data, status=201)
-    return JsonResponse(serializer.errors, status=400)
+        return JsonResponse(serializer.data, status=status.HTTP_201_CREATED)
+    return JsonResponse(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
