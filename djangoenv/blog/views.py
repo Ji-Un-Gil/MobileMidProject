@@ -44,6 +44,5 @@ class PostDetail(RetrieveAPIView):
 
 
 class PostCreate(CreateAPIView):
-    queryset = Post.objects.all()
     serializer_class = PostSerializer
 
