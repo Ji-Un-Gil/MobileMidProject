@@ -4,6 +4,7 @@ from django.utils import timezone
 from rest_framework import viewsets
 from rest_framework.decorators import api_view
 from rest_framework.generics import RetrieveAPIView, CreateAPIView, get_object_or_404
+from rest_framework.response import Response
 
 from .serializers import PostSerializer
 
@@ -20,9 +21,9 @@ def delete_post(request, id):
     try:
         post = Post.objects.get(id=id)
         post.delete()
-        return JsonResponse({"message": "게시물이 삭제되었습니다."}, status=204)
+        return Response(status=204)
     except Post.DoesNotExist:
-        return JsonResponse({"error": "게시물을 찾을 수 없습니다."}, status=404)
+        return Response(status=404)
 
 
 class PostViewSet(viewsets.ModelViewSet):
