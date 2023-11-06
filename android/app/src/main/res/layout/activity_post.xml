@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PostActivity">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/platformTitle"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginBottom="10dp"
+            android:background="#ff9400"
+            android:gravity="center"
+            android:text="CCTV HUB"
+            android:textColor="#ffffff"
+            android:autoSizeTextType="uniform" />
+
+        <EditText
+            android:id="@+id/postTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="제목을 입력하세요" />
+
+        <EditText
+            android:id="@+id/postText"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:hint="내용을 입력하세요"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"/>
+
+        <EditText
+            android:id="@+id/postCreatedDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="촬영일자를 입력하세요" />
+
+        <ImageView
+            android:id="@+id/postImageView"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/example"
+            android:layout_gravity="center"
+            android:scaleType="centerCrop" />
+
+        <Button
+            android:id="@+id/postButtonChooseImage"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:background="#ff9400"
+            android:layout_centerHorizontal="true"
+            android:text="이미지 선택"
+            android:layout_gravity="center"
+            android:textColor="#ffffff" />
+
+        <Button
+            android:id="@+id/postButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#ff9400"
+            android:text="게시"
+            android:textColor="#ffffff"
+            android:layout_gravity="end"
+            android:layout_marginTop="16dp" />
+
+    </LinearLayout>
+</RelativeLayout>
